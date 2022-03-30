@@ -19,7 +19,7 @@ public class FileBrowserUpdate : MonoBehaviour
         new FileBrowser().OpenFileBrowser(bp, path =>
         {
             //Load stl from local path with UWR
-            StartCoroutine(LoadImage(path));
+            StartCoroutine(LoadSTL(path));
         });
     }
 

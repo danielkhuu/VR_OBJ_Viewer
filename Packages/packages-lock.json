@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "co.parabox.stl": {
-      "version": "file:co.parabox.stl",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
     "com.unity.collab-proxy": {
       "version": "1.15.13",
       "depth": 0,
