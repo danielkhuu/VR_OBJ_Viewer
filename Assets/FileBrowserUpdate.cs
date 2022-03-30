@@ -3,17 +3,20 @@ using AnotherFileBrowser.Windows;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Dummiesman;
+using System.IO;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+
 public class FileBrowserUpdate : MonoBehaviour
 {
-    public RawImage rawImage;
+    GameObject loadedObject;
 
     public void OpenFileBrowser()
     {
         var bp = new BrowserProperties();
-        bp.filter = "STL files (*.stl) | *.stl;";
+        bp.filter = "OBJ files (*.obj) | *.obj;";
         bp.filterIndex = 0;
 
         new FileBrowser().OpenFileBrowser(bp, path =>
@@ -35,8 +38,11 @@ public class FileBrowserUpdate : MonoBehaviour
             }
             else
             {
-                var uwrTexture = DownloadHandlerTexture.GetContent(uwr);
-                rawImage.texture = uwrTexture;
+                //var uwrTexture = DownloadHandlerTexture.GetContent(uwr);
+                //rawImage.texture = uwrTexture;
+                if(loadedObject != null)            
+                    Destroy(loadedObject);
+                loadedObject = new OBJLoader().Load(path);
             }
         }
     }

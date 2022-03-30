@@ -1,16 +1,21 @@
-﻿using Dummiesman;
+﻿using AnotherFileBrowser.Windows;
+using System.Collections;
+using System.Collections.Generic;
+using Dummiesman;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class ObjFromFile : MonoBehaviour
 {
-    string objPath = "models/test.obj";
+    //string objPath = "models/test.obj";
+    string objPath = string.Empty;
     string error = string.Empty;
     GameObject loadedObject;
 
-    void OnGUI() {
-        objPath = GUI.TextField(new Rect(0, 0, 256, 32), objPath);
-
+    private void OnGUI() {
+        //objPath = GUI.TextField(new Rect(0, 0, 256, 32), objPath);
         GUI.Label(new Rect(0, 0, 256, 32), "Obj Path:");
         if(GUI.Button(new Rect(256, 32, 64, 32), "Load File"))
         {
