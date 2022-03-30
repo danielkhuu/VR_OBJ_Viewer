@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class FileBrowserUpdate : MonoBehaviour
 {
     GameObject loadedObject;
-
+    [SerializeField] Canvas launcher = null;
     public void OpenFileBrowser()
     {
         var bp = new BrowserProperties();
@@ -43,6 +43,7 @@ public class FileBrowserUpdate : MonoBehaviour
                 if(loadedObject != null)            
                     Destroy(loadedObject);
                 loadedObject = new OBJLoader().Load(path);
+                launcher.gameObject.SetActive(false);
             }
         }
     }
