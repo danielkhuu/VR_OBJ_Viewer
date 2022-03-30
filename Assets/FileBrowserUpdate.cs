@@ -43,6 +43,9 @@ public class FileBrowserUpdate : MonoBehaviour
                 if(loadedObject != null)            
                     Destroy(loadedObject);
                 loadedObject = new OBJLoader().Load(path);
+                loadedObject.AddComponent<Rigidbody>();
+                loadedObject.AddComponent<BoxCollider>();
+
                 launcher.gameObject.SetActive(false);
             }
         }
